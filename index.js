@@ -24,9 +24,6 @@ app.use((req, res, next) => {
 if (config.routes !== false) {
   const routes = [
     { path: '/', file: 'index.html' },
-    { path: '/', file: 'games.html' },
-    { path: '/', file: 'movies.html' },
-    { path: '/', file: 'img' },
   ]
 
   routes.forEach((route) => {
