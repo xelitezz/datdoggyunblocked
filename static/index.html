@@ -1,0 +1,100 @@
+<script src="/uv/uv.bundle.js" defer></script>
+<script src="/uv/uv.config.js" defer></script>
+<script src="/register-sw.js" defer></script>
+<script src="/search.js" defer></script>
+<script src="/error.js" defer></script>
+<link rel='icon' type='image/x-icon' href='p'>
+<div class='title'>
+    <h1 id='title1'></h1>
+</div>
+    <a href="#" onclick="showContent('about')">Home</a>
+      <a href="#" onclick="showContent('skills')">Games</a>
+      <a href="#" onclick="showContent('contact')">Apps</a>
+      <a href="#" onclick="showContent('projects')">Tabs</a>
+      <a href="#" onclick="showContent('links')">Settings</a>
+      <a href="#" onclick="showContent('links')">About Us</a>
+    </nav>
+<form class='searchbox' id='searchbox'>
+    <input class='search' id='search' placeholder='Search' type='text'/>
+</form>
+<style>
+    body{
+        background: url("");
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow:hidden;
+    }
+    .bg{
+    top: 0%;
+    left: 0%;
+    position: absolute;
+    width:100%;
+    height:100%;
+    }
+    .searchbox{
+    width:47%;
+    height:7%;
+    position: absolute;
+    left:26.5%;
+    top:50%;
+    }
+    .search{
+    text-align: center;
+    background: transparent;
+    border-radius: 18px;
+    border-radius: 18px;
+    width:100%;
+    height:100%;
+    }
+    .title{
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    top:17%;
+    float: center;
+    align: center;
+    text-align: center;
+    }
+    ::placeholder {
+    margin: auto;
+    color: inherit;
+    font-size: 1.2em;
+    }
+</style>
+<script>
+    document.title="";
+    searchbox.style.color="";
+    search.style.backgroundColor="";
+    search.style.color="#";
+    search.style.border="";
+    title1.style.color="#";
+    search.placeholder="";
+    
+    var fontsize1=2560/screen.width*18;
+    var fontsize2=2560/screen.width*7;
+    
+    title1.style.fontSize = fontsize1+'px';
+    search.style.fontSize = fontsize2+'px';
+    
+    const form = document.getElementById('searchbox');
+    const input = document.getElementById('search');
+
+    form.addEventListener('submit', async event => {
+        event.preventDefault();
+      try {
+        await registerSW();
+      } catch (err) {
+        alert(err.toString());
+        throw err;
+      }
+      const url = search(input.value, "https://www.google.com/?q=%s");
+    window.location.href=__uv$config.prefix + __uv$config.encodeUrl(url);
+    });
+
+    function isUrl(val = '') {
+        if (/^http(s?):\/\//.test(val) || val.includes('.') && val.substr(0, 1) !== ' ') return true;
+        return false;
+    };
+
+</script>
