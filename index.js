@@ -79,7 +79,7 @@ server.on('upgrade', (req, socket, head) => {
 })
 
 server.on('listening', () => {
-  console.log(`TireUnblocker is running at http://localhost:${PORT}`)
+  console.log(`DatDoggyUnblocker is running at http://localhost:${PORT}`)
 })
 
 server.listen({
